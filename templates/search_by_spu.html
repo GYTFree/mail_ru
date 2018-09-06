@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Search by spu
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="row">
+                    <div class="col-md-2">
+                        <ul class="nav nav-list nav-pills nav-stacked" style="font-size: 18px;">
+                            <li>
+                                <a href="#"><i class="icon-home icon-white"></i><strong>Home</strong></a>
+                            </li>
+                            <li class="active">
+                                <a href="{% url 'search_by_spu' %}"><i class="icon-book"></i><strong>Search by
+                                    SPU</strong></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'search_by_sku' %}"><i class="icon-pencil"></i><strong>Search By
+                                    SKU</strong></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="row">
+                            <form class="form-inline">
+                                {% csrf_token %}
+                                <label>Shop Name</label>
+                                <select class="form-control" id="shopname">
+                                    {% for shop in shops %}
+                                        <option>{{ shop.shop }}</option>
+                                    {% endfor %}
+                                </select>
+                                <div class="form-group">
+                                    <label for="item">item</label>
+                                    <input type="text" class="form-control" id="item" style="width: 350px;">
+                                    <div class="radio" style="margin-left: 10px;">
+                                        <label><input type="radio" name="spu_target" value="0" checked>&nbsp;id</label>
+                                    </div>
+                                    <div class="radio" style="margin-left: 10px;">
+                                        <label><input type="radio" name="spu_target" value="1">&nbsp;name</label>
+                                    </div>
+                                    <button type="button" style="margin-left: 10px;" class="btn btn-success"
+                                            id="serach_skus">Search
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row" style="margin-top: 10px;" id="spu_info">
+                            <table class="table table-condensed table-bordered">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Parent Sku</th>
+                                    <th class="text-center">SKU</th>
+                                    <th class="text-center">Price</th>
+                                    <th class="text-center">Inventory</th>
+                                    <th class="text-center">Enabled</th>
+                                    <th class="text-center">Main_image</th>
+                                    <th class="text-center">Updated_at</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for item in product.variants %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ product.parent_sku }}</td>
+                                        <td>{{ item.Variant.sku }}</td>
+                                        <td>{{ item.Variant.price }}</td>
+                                        <td>{{ item.Variant.inventory }}</td>
+                                        <td>{{ item.Variant.enabled }}</td>
+                                        <td>{{ item.Variant.main_image }}</td>
+                                        <td>{{ item.Variant.updated_at }}</td>
+                                    </tr>
+                                {% empty %}
+                                    <tr>
+                                        <td colspan=8><h5 class="text-center text-danger">无内容</h5></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        $("#serach_skus").click(function () {
+            $.ajax({
+                url: "{% url 'search_by_spu' %}",
+                type: 'post',
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    shopname: $("#shopname").val(),
+                    item: $("#item").val(),
+                    spu_target: $("input[type='radio'][name='spu_target']:checked").val(),
+                },
+                success: function (data) {
+                    $("#spu_info").html(data);
+                }
+            })
+        });
+    </script>
+{% endblock %}

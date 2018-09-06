@@ -1,0 +1,84 @@
+{% if sku %}
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class='col-sm-2 control-label' for="sku_id">sku_id</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="sku_id">{{ sku.id }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="product_id">product_id</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="product_id">{{ sku.product_id }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="sku">sku</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="sku">{{ sku.sku }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="color">color</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="color">{{ sku.color }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="color_name">color_name</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="color_name">{{ sku.color_name }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="size">size</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="size">{{ sku.size }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="inventory">inventory</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="inventory">{{ sku.inventory }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="price">price</label>
+            <div class="col-sm-6"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="price">{{ sku.price }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="shipping">shipping</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="shipping">{{ sku.shipping }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="msrp">msrp</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="msrp">{{ sku.msrp }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="enabled">enabled</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="enabled">{{ sku.enabled }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="shipping_time">shipping_time</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="shipping_time">{{ sku.shipping_time }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="main_image">main_image</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="main_image">{{ sku.main_image }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="updated_at">updated_at</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="updated_at">{{ sku.updated_at }}</span></div>
+        </div>
+        {% for img in all_images %}
+            <div class="form-group">
+                <label class='col-sm-2 control-label'
+                       for="image{{ forloop.counter }}">image{{ forloop.counter }}</label>
+                <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                            id="image{{ forloop.counter }}">{{ img }}</span></div>
+            </div>
+        {% endfor %}
+    </form>
+{% else %}
+    <span class="text-center text-danger">未搜索到相关的SKU信息</span>
+{% endif %}
