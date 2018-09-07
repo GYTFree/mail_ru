@@ -31,10 +31,10 @@ def regist_user(request):
                 user = User.objects.create_user(username, email, password)
                 user.save()
                 return redirect(reverse('login'))
-            return render(request, 'regist.html', context={'err_msg': err_msg})
+            return render(request, 'skus/regist.html', context={'err_msg': err_msg})
         else:
-            return render(request, 'regist.html', context={'forms': regist_form})
-    return render(request, 'regist.html')
+            return render(request, 'skus/regist.html', context={'forms': regist_form})
+    return render(request, 'skus/regist.html')
 
 
 def my_login(request):
@@ -45,7 +45,7 @@ def my_login(request):
         if user is not None:
             login(request, user)
             return redirect(reverse('search_by_sku'))
-    return render(request, 'login.html')
+    return render(request, 'skus/login.html')
 
 
 def my_logout(request):
@@ -60,7 +60,7 @@ def sku_detail(request, sku_id):
     sku_all_images.replace("'", "")
     sku_all_images = sku_all_images.split(',')
     sku_all_images = [img.strip("'").strip().strip("'") for img in sku_all_images]
-    return render(request, 'sku_detail.html', context={'sku': sku, 'all_images': sku_all_images})
+    return render(request, 'skus/sku_detail.html', context={'sku': sku, 'all_images': sku_all_images})
 
 
 def search_by_sku(request):
@@ -83,11 +83,11 @@ def search_by_sku(request):
                 sku.update(**resp)
             else:
                 Sku.objects.create(**resp)
-            return render(request, 'sku_info.html',
+            return render(request, 'skus/sku_info.html',
                           context={'sku': resp, 'all_images': all_images, 'username': username})
         else:
-            return render(request, 'sku_info.html', context={'shops': shops, 'username': username})
-    return render(request, 'search_by_sku.html', context={'shops': shops, 'username': username})
+            return render(request, 'skus/sku_info.html', context={'shops': shops, 'username': username})
+    return render(request, 'skus/search_by_sku.html', context={'shops': shops, 'username': username})
 
 
 def search_by_spu(request):
@@ -132,5 +132,5 @@ def search_by_spu(request):
             context = {'shops': shops, 'product': product, 'username': username}
         else:
             context = {'shops': shops, 'product': None, 'username': username}
-        return render(request, 'spu_info.html', context=context)
-    return render(request, 'search_by_spu.html', context={'shops': shops, 'username': username})
+        return render(request, 'skus/spu_info.html', context=context)
+    return render(request, 'skus/search_by_spu.html', context={'shops': shops, 'username': username})
