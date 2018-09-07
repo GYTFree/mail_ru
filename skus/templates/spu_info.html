@@ -1,0 +1,30 @@
+<table class="table table-condensed table-bordered">
+    <thead>
+    <tr>
+        <th class="text-center">#</th>
+        <th class="text-center">Parent Sku</th>
+        <th class="text-center">SKU</th>
+        <th class="text-center">Price</th>
+        <th class="text-center">Inventory</th>
+        <th class="text-center">Enabled</th>
+        <th class="text-center">Main_image</th>
+        <th class="text-center">Updated_at</th>
+    </tr>
+    </thead>
+    {% for item in product.variants %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ product.parent_sku }}</td>
+            <td><a href="{% url 'sku_detail' item.Variant.id %}">{{ item.Variant.sku }}</a></td>
+            <td>{{ item.Variant.price }}</td>
+            <td>{{ item.Variant.inventory }}</td>
+            <td>{{ item.Variant.enabled }}</td>
+            <td>{{ item.Variant.main_image }}</td>
+            <td>{{ item.Variant.updated_at }}</td>
+        </tr>
+    {% empty %}
+        <tr>
+            <td colspan=8><h5 class="text-center text-danger">没有搜索到相关的SKU信息</h5></td>
+        </tr>
+    {% endfor %}
+</table>
