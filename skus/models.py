@@ -73,7 +73,7 @@ class Order(models.Model):
     shipped_date = models.CharField(max_length=64, null=True)
     ship_note = models.CharField(max_length=64, null=True)
     last_updated = models.CharField(max_length=64)
-    order_total = models.IntegerField()
+    order_total = models.DecimalField(max_digits=10, decimal_places=2)
     days_to_fulfill = models.IntegerField()
     hours_to_fulfill = models.IntegerField()
     expected_ship_date = models.CharField(max_length=64)
