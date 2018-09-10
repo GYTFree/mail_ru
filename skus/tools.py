@@ -75,7 +75,7 @@ class ShopSession(object):
         request = Request('get', self._order_url, params=params, headers=self.headers).prepare()
         response = self.session.send(request)
         if response.json().get('code') == 0:
-            response = response.json()
+            response = response.json().get('data').get('Order')
             response['shop_name'] = self.shopname
             return response
         else:

@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from skus.tools import ShopSession
 from skus.models import Client
-from skus.models import Spu, Sku
+from skus.models import Spu, Sku, Order, Buyer
 from skus.myForms import DemoForms
 
 
@@ -53,6 +53,18 @@ def my_logout(request):
     return redirect(reverse('login'))
 
 
+def change_passwd(reqeust):
+    if reqeust.method == "POST":
+        username = reqeust.POST.get('username')
+        password = reqeust.POST.get('password')
+        re_password = reqeust.POST.get('re_password')
+        if password == re_password:
+            user = User.objects.get(username=username)
+            user.set_password(password)
+            user.save()
+            return redirect(reverse('login'))
+    return render(reqeust, 'change_password.html')
+
 def sku_detail(request, sku_id):
     sku = Sku.objects.get(id=sku_id)
     sku_all_images = sku.all_images
@@ -83,8 +95,8 @@ def search_by_sku(request):
                 sku.update(**resp)
             else:
                 Sku.objects.create(**resp)
-            return render(request, 'skus/sku_info.html',
-                          context={'sku': resp, 'all_images': all_images, 'username': username})
+            context = {'sku': resp, 'all_images': all_images, 'username': username}
+            return render(request, 'skus/sku_info.html', context=context)
         else:
             return render(request, 'skus/sku_info.html', context={'shops': shops, 'username': username})
     return render(request, 'skus/search_by_sku.html', context={'shops': shops, 'username': username})
@@ -134,3 +146,43 @@ def search_by_spu(request):
             context = {'shops': shops, 'product': None, 'username': username}
         return render(request, 'skus/spu_info.html', context=context)
     return render(request, 'skus/search_by_spu.html', context={'shops': shops, 'username': username})
+
+
+def search_orders(request):
+    if not request.user.is_authenticated:
+        return redirect(reverse('login'))
+    else:
+        username = request.user
+    shops = Client.objects.values('shop')
+    if request.method == 'POST':
+        shopname = request.POST.get('shopname')
+        order_id = request.POST.get('item')
+        session = ShopSession(shopname)
+        params = {'id': order_id}
+        order_info = session.get_order(params)
+        if order_info:
+            buyer = order_info.pop('ShippingDetail')
+            buyer['buyer_id'] = order_info['buyer_id']
+            if not Order.objects.filter(order_id=order_info['order_id']):
+                Order.objects.create(**order_info)
+            else:
+                Order.objects.update(**order_info)
+            if not Buyer.objects.filter(buyer_id=order_info['buyer_id']):
+                Buyer.objects.create(**buyer)
+            else:
+                Buyer.objects.update(**buyer)
+        context = {}
+        context['order'] = order_info if order_info else None
+        return render(request, 'skus/order_info.html', context=context)
+    context = {
+        'shops': shops,
+        'username': username,
+    }
+    return render(request, 'skus/search_order.html', context=context)
+
+
+def buyer(request, id):
+    buyer = Buyer.objects.get(buyer_id=id)
+    context = {}
+    context['buyer'] = buyer
+    return render(request, 'skus/buyer.html', context=context)

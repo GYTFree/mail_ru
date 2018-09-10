@@ -1,0 +1,76 @@
+{% if order %}
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class='col-sm-2 control-label' for="order_id">order_id</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="order_id">{{ order.order_id }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="updated_at">buyer_id</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="buyer_id"><a href="{% url 'buyer' order.buyer_id %}">{{ order.buyer_id }}</a></span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="updated_at">buyer</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="buyer">{{ order.ShippingDetail.name }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="product_id">product_id</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="product_id">{{ order.product_id }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="order">sku</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="sku">{{ order.sku }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="color">state</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="state">{{ order.state }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="size">price</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="price">{{ order.price }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="inventory">cost</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="cost">{{ order.cost }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="color_name">last_updated</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="last_updated">{{ order.last_updated }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="price">order_time</label>
+            <div class="col-sm-6"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="order_time">{{ order.order_time }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="shipping">refunded_time</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="refunded_time">{{ order.refunded_time }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="msrp">refunded_reason</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="refunded_reason">{{ order.refunded_reason }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="enabled">tracking_confirmed</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="tracking_confirmed">{{ order.tracking_confirmed }}</span></div>
+        </div>
+        <div class="form-group form-inline">
+            <label class='col-sm-2 control-label' for="shipping_time">tracking_confirmed_date</label>
+            <div class="col-sm-8"><span class="form-control" style="width:650px;font-size:1em"
+                                        id="tracking_confirmed_date">{{ order.tracking_confirmed_date }}</span></div>
+        </div>
+    </form>
+{% else %}
+    <span class="text-center text-danger">未搜索到相关的订单信息</span>
+{% endif %}

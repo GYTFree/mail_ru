@@ -18,6 +18,10 @@
         body {
             padding-top: 70px;
         }
+
+        .container-body {
+            height: 100%;
+        }
     </style>
 </head>
 
@@ -26,19 +30,13 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                <img src="{% static 'imgs/logo.png' %}" style="width: 100%;height: 150%;" alt="">
-            </a>
+            <a class="navbar-brand" href="#"><img src="{% static 'imgs/logo.png' %}" style="width: 100%;height: 150%;" alt=""></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-right">
             <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="#">SKU信息查询</a>
-                </li>
-                <li>
-                    <a href="#">订单信息查询</a>
-                </li>
+                <li class="active" id="nav-sku"><a href="{% url 'search_by_sku' %}">SKU信息查询</a></li>
+                <li id="nav-order"><a href="{% url 'search_orders' %}">订单信息查询</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -47,12 +45,8 @@
                         <span class="glyphicon glyphicon-user"></span> &nbsp;{{ username }}
                     </a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a href="#">账户信息</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'logout' %}">退出</a>
-                        </li>
+                        <li><a href="#">账户信息</a></li>
+                        <li><a href="{% url 'logout' %}">退出</a></li>
                     </ul>
                 </li>
             </ul>

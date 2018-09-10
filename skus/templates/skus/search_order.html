@@ -1,26 +1,21 @@
 {% extends "skus/base.html" %}
 
 {% block title %}
-    Search by sku
+    Order Information
 {% endblock %}
 
 {% block body %}
-    <div class="container-fluid container-body">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-11">
                 <div class="row">
-                    <div class="col-md-2" style="height: 100%;background-color: azure">
+                    <div class="col-md-2">
                         <ul class="nav nav-list nav-pills nav-stacked" style="font-size: 18px;">
                             <li>
                                 <a href="#"><i class="icon-home icon-white"></i><strong>Home</strong></a>
                             </li>
-                            <li>
-                                <a href="{% url 'search_by_spu' %}"><i class="icon-book"></i><strong>Search by
-                                    SPU</strong></a>
-                            </li>
                             <li class="active">
-                                <a href="{% url 'search_by_sku' %}"><i class="icon-pencil"></i><strong>Search By
-                                    SKU</strong></a>
+                                <a href="{% url 'search_orders' %}"><i class="icon-pencil"></i><strong>Search Order</strong></a>
                             </li>
                         </ul>
                     </div>
@@ -38,11 +33,11 @@
                                 <div class="form-group">
                                     <label for="item">item</label>
                                     <input type="text" class="form-control" id="item" style="width: 350px;">
-                                    <button type="button" class="btn btn-success" id="serach_skus">Search</button>
+                                    <button type="button" class="btn btn-success" id="serach_order">Search</button>
                                 </div>
                             </form>
                         </div>
-                        <div class="row" style="margin-top: 10px;" id="sku_info">
+                        <div class="row" style="margin-top: 10px;" id="order_info">
                             {#     sku信息    #}
                         </div>
                     </div>
@@ -54,9 +49,9 @@
 
 {% block script %}
     <script>
-        $("#serach_skus").click(function () {
+        $("#serach_order").click(function () {
             $.ajax({
-                url: "{% url 'search_by_sku' %}",
+                url: "{% url 'search_orders' %}",
                 type: 'post',
                 data: {
                     csrfmiddlewaretoken: '{{ csrf_token }}',
@@ -64,9 +59,11 @@
                     item: $("#item").val(),
                 },
                 success: function (data) {
-                    $("#sku_info").html(data);
+                    $("#order_info").html(data);
                 }
             })
         });
+        $("#nav-order").attr('class', 'active');
+        $("#nav-sku").removeAttr('class');
     </script>
 {% endblock %}
