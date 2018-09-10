@@ -160,6 +160,7 @@ def search_orders(request):
         session = ShopSession(shopname)
         params = {'id': order_id}
         order_info = session.get_order(params)
+        print(order_info)
         if order_info:
             buyer = order_info.pop('ShippingDetail')
             buyer['buyer_id'] = order_info['buyer_id']
@@ -173,6 +174,7 @@ def search_orders(request):
                 Buyer.objects.update(**buyer)
         context = {}
         context['order'] = order_info if order_info else None
+        context['buyer'] = buyer.get('name')
         return render(request, 'skus/order_info.html', context=context)
     context = {
         'shops': shops,

@@ -1,0 +1,508 @@
+*** Starting uWSGI 2.0.17.1 (64bit) on [Mon Sep 10 17:09:43 2018] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-28) on 04 September 2018 09:12:14
+os: Linux-3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018
+nodename: CentOS7
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /data/apps/webapps/MailRu/script
+writing pidfile to /data/apps/webapps/MailRu/script/uwsgi.pid
+detected binary path: /usr/local/python-3.6.4/bin/uwsgi
+setgid() to 995
+setuid() to 997
+chdir() to /data/apps/webapps/MailRu/
+your processes number limit is 31355
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+!!! no /etc/mime.types file found !!!
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on 0.0.0.0:8080 fd 3
+uwsgi socket 0 bound to UNIX address /data/apps/webapps/MailRu/script/uwsgi.sock fd 6
+Python version: 3.6.4 (default, Sep  4 2018, 17:08:40)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-28)]
+Python main interpreter initialized at 0x16c5c00
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x16c5c00 pid: 32323 (default app)
+spawned uWSGI master process (pid: 32323)
+spawned uWSGI worker 1 (pid: 32325, cores: 1)
+spawned uWSGI worker 2 (pid: 32326, cores: 1)
+spawned uWSGI worker 3 (pid: 32327, cores: 1)
+spawned uWSGI worker 4 (pid: 32328, cores: 1)
+spawned uWSGI worker 5 (pid: 32329, cores: 1)
+spawned uWSGI http 1 (pid: 32330)
+None
+[pid: 32325|app: 0|req: 1/1] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:09:51 2018] POST /search_orders => generated 84 bytes in 3303 msecs (HTTP/1.1 200) 4 headers in 122 bytes (1 switches on core 0)
+{'order_id': 'b8abd65a-38db-48c5-a760-908149e3560c', 'transaction_id': '4AA2111A-B453-11E8-8315-4BFEFD3BBEC2', 'product_id': '851ec17f-fbeb-40fa-bbbb-9e5efabccb70', 'variant_id': '34539b0f-05cd-40f5-90ef-5f00f4f1613f', 'buyer_id': '682a6f09-f6f7-4458-b2c3-6efc33053490', 'quantity': '1', 'sku': 'AY-CF025-I', 'size': None, 'color': 'pink ratbbit', 'state': 'shipped', 'shipping_provider': 'default_free', 'tracking_number': 'UB379563352YP', 'shipped_date': '2018-09-10T10:44:30+03:00', 'ship_note': None, 'last_updated': '2018-09-10T10:44:30+03:00', 'order_total': '1.02', 'days_to_fulfill': '4', 'hours_to_fulfill': '108', 'expected_ship_date': '2018-09-09T20:10:39+03:00', 'price': '1.02', 'cost': '1.02', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Squishy cat Japan Mochi Animal Lazy Cat Bread Puppy Dog Pussy Cat Candy Slow Rising Phone Strap Toy', 'product_image_url': 'http://www.aybsz.com/img/CF025a.jpg', 'order_time': '2018-09-09T20:10:39+03:00', 'ShippingDetail': {'city': 'Yoshkar-Ola', 'zipcode': '424007', 'street_address1': 'ulitsa Stroiteley, d. 34b, kv. 78', 'phone_number': '+79063351648', 'state': 'Yoshkar-Ola', 'street_address2': '', 'name': 'Anna Nikolaevna Zubko', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+Internal Server Error: /search_orders
+Traceback (most recent call last):
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'size' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./skus/views.py", line 168, in search_orders
+    Order.objects.create(**order_info)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/query.py", line 417, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/base.py", line 842, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/base.py", line 880, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/query.py", line 1125, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1280, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "Column 'size' cannot be null")
+[pid: 32326|app: 0|req: 1/2] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:10:02 2018] POST /search_orders => generated 17936 bytes in 4017 msecs (HTTP/1.1 500) 4 headers in 145 bytes (1 switches on core 0)
+Mon Sep 10 17:11:58 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Mon Sep 10 17:11:58 2018 - uWSGI worker 5 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Mon Sep 10 17:11:58 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Mon Sep 10 17:11:58 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.17.1 (64bit) on [Mon Sep 10 17:12:04 2018] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-28) on 04 September 2018 09:12:14
+os: Linux-3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018
+nodename: CentOS7
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /data/apps/webapps/MailRu/script
+writing pidfile to /data/apps/webapps/MailRu/script/uwsgi.pid
+detected binary path: /usr/local/python-3.6.4/bin/uwsgi
+setgid() to 995
+setuid() to 997
+chdir() to /data/apps/webapps/MailRu/
+your processes number limit is 31355
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+!!! no /etc/mime.types file found !!!
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on 0.0.0.0:8080 fd 3
+uwsgi socket 0 bound to UNIX address /data/apps/webapps/MailRu/script/uwsgi.sock fd 6
+Python version: 3.6.4 (default, Sep  4 2018, 17:08:40)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-28)]
+Python main interpreter initialized at 0x12c0c00
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x12c0c00 pid: 32353 (default app)
+spawned uWSGI master process (pid: 32353)
+spawned uWSGI worker 1 (pid: 32355, cores: 1)
+spawned uWSGI worker 2 (pid: 32356, cores: 1)
+spawned uWSGI worker 3 (pid: 32357, cores: 1)
+spawned uWSGI worker 4 (pid: 32358, cores: 1)
+spawned uWSGI worker 5 (pid: 32359, cores: 1)
+spawned uWSGI http 1 (pid: 32360)
+Internal Server Error: /search_orders
+Traceback (most recent call last):
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/urllib3/connectionpool.py", line 849, in _validate_conn
+    conn.connect()
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/urllib3/connection.py", line 356, in connect
+    ssl_context=context)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/urllib3/util/ssl_.py", line 359, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/local/python-3.6.4/lib/python3.6/ssl.py", line 407, in wrap_socket
+    _context=self, _session=session)
+  File "/usr/local/python-3.6.4/lib/python3.6/ssl.py", line 814, in __init__
+    self.do_handshake()
+  File "/usr/local/python-3.6.4/lib/python3.6/ssl.py", line 1068, in do_handshake
+    self._sslobj.do_handshake()
+  File "/usr/local/python-3.6.4/lib/python3.6/ssl.py", line 689, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:777)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/requests/adapters.py", line 445, in send
+    timeout=timeout
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='mall.my.com', port=443): Max retries exceeded with url: /oauth/v2/token (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:777)'),))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./skus/views.py", line 160, in search_orders
+    session = ShopSession(shopname)
+  File "./skus/tools.py", line 17, in __init__
+    self.set_headers()
+  File "./skus/tools.py", line 48, in set_headers
+    token = self.get_token()
+  File "./skus/tools.py", line 42, in get_token
+    token = self.session.send(request)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/requests/sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/requests/adapters.py", line 511, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='mall.my.com', port=443): Max retries exceeded with url: /oauth/v2/token (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:777)'),))
+Mon Sep 10 17:12:39 2018 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /search_orders (ip 127.0.0.1) !!!
+Mon Sep 10 17:12:39 2018 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 306] during POST /search_orders (127.0.0.1)
+OSError: write error
+[pid: 32327|app: 0|req: 1/3] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:11:25 2018] POST /search_orders => generated 0 bytes in 73324 msecs (HTTP/1.1 500) 4 headers in 0 bytes (0 switches on core 0)
+Mon Sep 10 17:12:39 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+{'order_id': 'b8abd65a-38db-48c5-a760-908149e3560c', 'transaction_id': '4AA2111A-B453-11E8-8315-4BFEFD3BBEC2', 'product_id': '851ec17f-fbeb-40fa-bbbb-9e5efabccb70', 'variant_id': '34539b0f-05cd-40f5-90ef-5f00f4f1613f', 'buyer_id': '682a6f09-f6f7-4458-b2c3-6efc33053490', 'quantity': '1', 'sku': 'AY-CF025-I', 'size': None, 'color': 'pink ratbbit', 'state': 'shipped', 'shipping_provider': 'default_free', 'tracking_number': 'UB379563352YP', 'shipped_date': '2018-09-10T10:44:30+03:00', 'ship_note': None, 'last_updated': '2018-09-10T10:44:30+03:00', 'order_total': '1.02', 'days_to_fulfill': '4', 'hours_to_fulfill': '108', 'expected_ship_date': '2018-09-09T20:10:39+03:00', 'price': '1.02', 'cost': '1.02', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Squishy cat Japan Mochi Animal Lazy Cat Bread Puppy Dog Pussy Cat Candy Slow Rising Phone Strap Toy', 'product_image_url': 'http://www.aybsz.com/img/CF025a.jpg', 'order_time': '2018-09-09T20:10:39+03:00', 'ShippingDetail': {'city': 'Yoshkar-Ola', 'zipcode': '424007', 'street_address1': 'ulitsa Stroiteley, d. 34b, kv. 78', 'phone_number': '+79063351648', 'state': 'Yoshkar-Ola', 'street_address2': '', 'name': 'Anna Nikolaevna Zubko', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32355|app: 0|req: 1/1] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:12:22 2018] POST /search_orders => generated 4615 bytes in 21872 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': 'b8abd65a-38db-48c5-a760-908149e3560c', 'transaction_id': '4AA2111A-B453-11E8-8315-4BFEFD3BBEC2', 'product_id': '851ec17f-fbeb-40fa-bbbb-9e5efabccb70', 'variant_id': '34539b0f-05cd-40f5-90ef-5f00f4f1613f', 'buyer_id': '682a6f09-f6f7-4458-b2c3-6efc33053490', 'quantity': '1', 'sku': 'AY-CF025-I', 'size': None, 'color': 'pink ratbbit', 'state': 'shipped', 'shipping_provider': 'default_free', 'tracking_number': 'UB379563352YP', 'shipped_date': '2018-09-10T10:44:30+03:00', 'ship_note': None, 'last_updated': '2018-09-10T10:44:30+03:00', 'order_total': '1.02', 'days_to_fulfill': '4', 'hours_to_fulfill': '108', 'expected_ship_date': '2018-09-09T20:10:39+03:00', 'price': '1.02', 'cost': '1.02', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Squishy cat Japan Mochi Animal Lazy Cat Bread Puppy Dog Pussy Cat Candy Slow Rising Phone Strap Toy', 'product_image_url': 'http://www.aybsz.com/img/CF025a.jpg', 'order_time': '2018-09-09T20:10:39+03:00', 'ShippingDetail': {'city': 'Yoshkar-Ola', 'zipcode': '424007', 'street_address1': 'ulitsa Stroiteley, d. 34b, kv. 78', 'phone_number': '+79063351648', 'state': 'Yoshkar-Ola', 'street_address2': '', 'name': 'Anna Nikolaevna Zubko', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32356|app: 0|req: 1/2] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:13:03 2018] POST /search_orders => generated 4615 bytes in 2639 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': '6ac5667e-8271-4cac-aff1-6acd883628a3', 'transaction_id': '7FC10272-B375-11E8-B49B-D61F8488B81A', 'product_id': 'c6441f01-ed18-46a0-885b-26018e20bee3', 'variant_id': 'bf8348b7-04c4-448f-b5ea-04cb9a86d87c', 'buyer_id': '2fcf3200-9f65-40a4-8c53-a97b53350e06', 'quantity': '1', 'sku': 'PQ-MY51881H3ATD3X3', 'size': None, 'color': None, 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T21:47:26+03:00', 'order_total': '0.98', 'days_to_fulfill': '3', 'hours_to_fulfill': '81', 'expected_ship_date': '2018-09-08T17:42:40+03:00', 'price': '0.98', 'cost': '0.98', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'DIY Men Wrist Wrap Hemp Braided Leather Bracelet Bangle Cuff', 'product_image_url': 'http://showacademy.info/8X1462532488_DWC44A.jpg', 'order_time': '2018-09-08T17:42:40+03:00', 'ShippingDetail': {'city': 'Voronezh', 'zipcode': '394088', 'street_address1': 'Begovaya, d. 225, korp. v, kv. 55', 'phone_number': '+79019934522', 'state': 'Voronezh', 'street_address2': '', 'name': 'Dmitriy Vitalevich Panov', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+Internal Server Error: /search_orders
+Traceback (most recent call last):
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'color' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./skus/views.py", line 168, in search_orders
+    Order.objects.create(**order_info)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/query.py", line 417, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/base.py", line 842, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/base.py", line 880, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/query.py", line 1125, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1280, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python-3.6.4/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "Column 'color' cannot be null")
+[pid: 32357|app: 0|req: 1/3] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:13:24 2018] POST /search_orders => generated 17939 bytes in 2618 msecs (HTTP/1.1 500) 4 headers in 145 bytes (1 switches on core 0)
+{'order_id': '6ac5667e-8271-4cac-aff1-6acd883628a3', 'transaction_id': '7FC10272-B375-11E8-B49B-D61F8488B81A', 'product_id': 'c6441f01-ed18-46a0-885b-26018e20bee3', 'variant_id': 'bf8348b7-04c4-448f-b5ea-04cb9a86d87c', 'buyer_id': '2fcf3200-9f65-40a4-8c53-a97b53350e06', 'quantity': '1', 'sku': 'PQ-MY51881H3ATD3X3', 'size': None, 'color': None, 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T21:47:26+03:00', 'order_total': '0.98', 'days_to_fulfill': '3', 'hours_to_fulfill': '81', 'expected_ship_date': '2018-09-08T17:42:40+03:00', 'price': '0.98', 'cost': '0.98', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'DIY Men Wrist Wrap Hemp Braided Leather Bracelet Bangle Cuff', 'product_image_url': 'http://showacademy.info/8X1462532488_DWC44A.jpg', 'order_time': '2018-09-08T17:42:40+03:00', 'ShippingDetail': {'city': 'Voronezh', 'zipcode': '394088', 'street_address1': 'Begovaya, d. 225, korp. v, kv. 55', 'phone_number': '+79019934522', 'state': 'Voronezh', 'street_address2': '', 'name': 'Dmitriy Vitalevich Panov', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32358|app: 0|req: 1/4] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:14:23 2018] POST /search_orders => generated 4624 bytes in 2341 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+None
+[pid: 32359|app: 0|req: 1/5] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:14:43 2018] POST /search_orders => generated 84 bytes in 2146 msecs (HTTP/1.1 200) 4 headers in 122 bytes (1 switches on core 0)
+{'order_id': 'f8dde43d-75c5-4bd4-a97a-5a769ac6b902', 'transaction_id': '4F63A0D8-B2F5-11E8-9826-14D0545E8F59', 'product_id': '9e624bd1-ec3e-47f4-b3a3-9b869f65e3c9', 'variant_id': '536dc906-0d9a-4b52-939b-39a332ce4ca4', 'buyer_id': '54277401-a20f-41e1-b032-54d22b83abb3', 'quantity': '1', 'sku': 'HP-VHF50011', 'size': '', 'color': '', 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T06:28:59+03:00', 'order_total': '1.46', 'days_to_fulfill': '2', 'hours_to_fulfill': '66', 'expected_ship_date': '2018-09-08T02:25:23+03:00', 'price': '1.46', 'cost': '1.46', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Type C Data Charging Cable For Andrews phone', 'product_image_url': 'https://img.joomcdn.net/aa3a55d7befa92f5ec94d10e2ff8725681161284_original.jpeg', 'order_time': '2018-09-08T02:25:23+03:00', 'ShippingDetail': {'city': 'Krasnogorsk', 'zipcode': '143401', 'street_address1': 'Podmoskovnyy bulvar, d. 7, kv. 41', 'phone_number': '+79778998314', 'state': 'Moskovkaya Oblast', 'street_address2': '', 'name': 'Akob  Panosyan', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32355|app: 0|req: 2/6] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:15:14 2018] POST /search_orders => generated 4617 bytes in 2325 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': 'f8dde43d-75c5-4bd4-a97a-5a769ac6b902', 'transaction_id': '4F63A0D8-B2F5-11E8-9826-14D0545E8F59', 'product_id': '9e624bd1-ec3e-47f4-b3a3-9b869f65e3c9', 'variant_id': '536dc906-0d9a-4b52-939b-39a332ce4ca4', 'buyer_id': '54277401-a20f-41e1-b032-54d22b83abb3', 'quantity': '1', 'sku': 'HP-VHF50011', 'size': '', 'color': '', 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T06:28:59+03:00', 'order_total': '1.46', 'days_to_fulfill': '2', 'hours_to_fulfill': '66', 'expected_ship_date': '2018-09-08T02:25:23+03:00', 'price': '1.46', 'cost': '1.46', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Type C Data Charging Cable For Andrews phone', 'product_image_url': 'https://img.joomcdn.net/aa3a55d7befa92f5ec94d10e2ff8725681161284_original.jpeg', 'order_time': '2018-09-08T02:25:23+03:00', 'ShippingDetail': {'city': 'Krasnogorsk', 'zipcode': '143401', 'street_address1': 'Podmoskovnyy bulvar, d. 7, kv. 41', 'phone_number': '+79778998314', 'state': 'Moskovkaya Oblast', 'street_address2': '', 'name': 'Akob  Panosyan', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32356|app: 0|req: 2/7] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:15:23 2018] POST /search_orders => generated 4617 bytes in 3467 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': 'f8dde43d-75c5-4bd4-a97a-5a769ac6b902', 'transaction_id': '4F63A0D8-B2F5-11E8-9826-14D0545E8F59', 'product_id': '9e624bd1-ec3e-47f4-b3a3-9b869f65e3c9', 'variant_id': '536dc906-0d9a-4b52-939b-39a332ce4ca4', 'buyer_id': '54277401-a20f-41e1-b032-54d22b83abb3', 'quantity': '1', 'sku': 'HP-VHF50011', 'size': '', 'color': '', 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T06:28:59+03:00', 'order_total': '1.46', 'days_to_fulfill': '2', 'hours_to_fulfill': '66', 'expected_ship_date': '2018-09-08T02:25:23+03:00', 'price': '1.46', 'cost': '1.46', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Type C Data Charging Cable For Andrews phone', 'product_image_url': 'https://img.joomcdn.net/aa3a55d7befa92f5ec94d10e2ff8725681161284_original.jpeg', 'order_time': '2018-09-08T02:25:23+03:00', 'ShippingDetail': {'city': 'Krasnogorsk', 'zipcode': '143401', 'street_address1': 'Podmoskovnyy bulvar, d. 7, kv. 41', 'phone_number': '+79778998314', 'state': 'Moskovkaya Oblast', 'street_address2': '', 'name': 'Akob  Panosyan', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32357|app: 0|req: 2/8] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:15:35 2018] POST /search_orders => generated 4617 bytes in 2247 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': '2825255f-d4ee-49b8-92f8-e7ea42a7aa53', 'transaction_id': '276877E4-B286-11E8-AB2B-1D03515E8F59', 'product_id': '4eaac81a-41d3-44f1-84ca-991ee75ca194', 'variant_id': '442851e7-4a43-4ac2-b40b-d1693f7eb7bd', 'buyer_id': 'a8fbc4e9-4b32-41fb-adff-e314183fe196', 'quantity': '1', 'sku': 'SC-JBLcase747', 'size': '0', 'color': '0', 'state': 'shipped', 'shipping_provider': 'default_free', 'tracking_number': 'RP033375584CN', 'shipped_date': '2018-09-10T09:58:39+03:00', 'ship_note': None, 'last_updated': '2018-09-10T09:58:39+03:00', 'order_total': '20', 'days_to_fulfill': '2', 'hours_to_fulfill': '52', 'expected_ship_date': '2018-09-07T13:08:38+03:00', 'price': '20', 'cost': '20', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Fashion Travel Zipper Portable Hard Case Bag for Beats Pill + PLUS Bluetooth Speaker', 'product_image_url': 'https://contestimg.wish.com/api/webimage/56f8cf2461d6cf68965da78d-original.jpg', 'order_time': '2018-09-07T13:08:38+03:00', 'ShippingDetail': {'city': 'Sankt-Peterburg', 'zipcode': '194355', 'street_address1': 'ulitsa Kompozitorov, d. 26/3, kv. 281', 'phone_number': '+79112452526', 'state': 'Sankt-Peterburg', 'street_address2': '', 'name': 'Yekaterina Voadimirovna Cheredina', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'buckseller'}
+[pid: 32358|app: 0|req: 2/9] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:16:01 2018] POST /search_orders => generated 4614 bytes in 2504 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': 'a9906474-8c7c-48d1-a49e-fa9a81545a8a', 'transaction_id': 'BA1FE6EE-B330-11E8-82B9-C9978388B81A', 'product_id': '529bd8b6-8719-44e8-83e2-6557b900082d', 'variant_id': '790402c7-eabd-40cb-903b-06f99a297572', 'buyer_id': 'cfdf87f1-7a50-4e65-a5c9-37ba2ae7feeb', 'quantity': '1', 'sku': 'SC-JBLcase44Black', 'size': '0', 'color': 'Black', 'state': 'shipped', 'shipping_provider': 'default_free', 'tracking_number': 'RP033375655CN', 'shipped_date': '2018-09-10T09:58:39+03:00', 'ship_note': None, 'last_updated': '2018-09-10T09:58:39+03:00', 'order_total': '24', 'days_to_fulfill': '3', 'hours_to_fulfill': '73', 'expected_ship_date': '2018-09-08T09:28:52+03:00', 'price': '24', 'cost': '24', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Jjiong? Carrying Travel Protective Case for JBL Xtreme Bluetooth Speaker Semi-mesh Design Protection Box ,(Speaker NOT included)', 'product_image_url': 'https://contestimg.wish.com/api/webimage/597c71c17c3263678e13a7d0-original.jpg', 'order_time': '2018-09-08T09:28:52+03:00', 'ShippingDetail': {'city': 'Chekhov', 'zipcode': '142323', 'street_address1': 'Mosk. Obl.chekhovskiy rayon s. Sharapovo ul. Lenina, d. 8, kv. 17', 'phone_number': '+79268222502', 'state': 'Selo sharapovo', 'street_address2': '', 'name': 'Irina Vyacheslavovna Yurova', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'buckseller'}
+[pid: 32355|app: 0|req: 3/10] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:17:14 2018] POST /search_orders => generated 4618 bytes in 3999 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+Mon Sep 10 17:17:21 2018 - *** HARAKIRI ON WORKER 5 (pid: 32359, try: 1) ***
+Mon Sep 10 17:17:21 2018 - HARAKIRI !!! worker 5 status !!!
+Mon Sep 10 17:17:21 2018 - HARAKIRI [core 0] 127.0.0.1 - POST /search_orders since 1536570980
+Mon Sep 10 17:17:21 2018 - HARAKIRI !!! end of worker 5 status !!!
+DAMN ! worker 5 (pid: 32359) died, killed by signal 9 :( trying respawn ...
+Respawned uWSGI worker 5 (new pid: 32436)
+{'order_id': '2825255f-d4ee-49b8-92f8-e7ea42a7aa53', 'transaction_id': '276877E4-B286-11E8-AB2B-1D03515E8F59', 'product_id': '4eaac81a-41d3-44f1-84ca-991ee75ca194', 'variant_id': '442851e7-4a43-4ac2-b40b-d1693f7eb7bd', 'buyer_id': 'a8fbc4e9-4b32-41fb-adff-e314183fe196', 'quantity': '1', 'sku': 'SC-JBLcase747', 'size': '0', 'color': '0', 'state': 'shipped', 'shipping_provider': 'default_free', 'tracking_number': 'RP033375584CN', 'shipped_date': '2018-09-10T09:58:39+03:00', 'ship_note': None, 'last_updated': '2018-09-10T09:58:39+03:00', 'order_total': '20', 'days_to_fulfill': '2', 'hours_to_fulfill': '52', 'expected_ship_date': '2018-09-07T13:08:38+03:00', 'price': '20', 'cost': '20', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Fashion Travel Zipper Portable Hard Case Bag for Beats Pill + PLUS Bluetooth Speaker', 'product_image_url': 'https://contestimg.wish.com/api/webimage/56f8cf2461d6cf68965da78d-original.jpg', 'order_time': '2018-09-07T13:08:38+03:00', 'ShippingDetail': {'city': 'Sankt-Peterburg', 'zipcode': '194355', 'street_address1': 'ulitsa Kompozitorov, d. 26/3, kv. 281', 'phone_number': '+79112452526', 'state': 'Sankt-Peterburg', 'street_address2': '', 'name': 'Yekaterina Voadimirovna Cheredina', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'buckseller'}
+[pid: 32356|app: 0|req: 3/11] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:18:30 2018] POST /search_orders => generated 4614 bytes in 3099 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+None
+[pid: 32357|app: 0|req: 3/12] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:18:45 2018] POST /search_orders => generated 84 bytes in 3131 msecs (HTTP/1.1 200) 4 headers in 122 bytes (1 switches on core 0)
+None
+[pid: 32358|app: 0|req: 3/13] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:18:54 2018] POST /search_orders => generated 84 bytes in 5222 msecs (HTTP/1.1 200) 4 headers in 122 bytes (1 switches on core 0)
+{'order_id': '1c964cf8-c2fd-441c-8bca-1ae36ee5744d', 'transaction_id': '48F76936-B215-11E8-8B93-51B0FB3BBEC2', 'product_id': '512e9857-146c-408a-b2d2-7a1cc80fcf74', 'variant_id': '445252af-4e66-44bf-836a-99751e393afc', 'buyer_id': '8ddefa9d-6ee2-4049-bcd3-bc7bf049d96b', 'quantity': '1', 'sku': 'YP-MY10746RH0TPDMEG', 'size': None, 'color': None, 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-07T03:46:12+03:00', 'order_total': '4.05', 'days_to_fulfill': '1', 'hours_to_fulfill': '39', 'expected_ship_date': '2018-09-06T23:41:44+03:00', 'price': '4.05', 'cost': '4.05', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Gift Fashion Men Women Square Dial Leather Band Quartz Analog Wrist Watch', 'product_image_url': 'http://produceyw.info/D81480987198_LGDP2P80%20%2820%29.jpg', 'order_time': '2018-09-06T23:41:44+03:00', 'ShippingDetail': {'city': 'Fokino', 'zipcode': '692881', 'street_address1': 'Karla Marksa, d. 27, kv. 51', 'phone_number': '+79243270420', 'state': 'Primorskiy kray', 'street_address2': '', 'name': 'Yekaterina Vitalevna Sugak', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32355|app: 0|req: 4/14] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:18:59 2018] POST /search_orders => generated 4625 bytes in 10554 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': '4bc267ff-acf0-43d5-952b-c3d46dd993ef', 'transaction_id': 'DEA77C00-B22E-11E8-8EE3-9C7A82A92C5D', 'product_id': '88003231-8059-4c4f-88bb-0aa353868184', 'variant_id': '95b924c7-c896-425e-a88c-a4a6cfe995ae', 'buyer_id': '95316f56-3c1e-408f-9ab4-49cb95811ae6', 'quantity': '1', 'sku': 'FNK-F6601046X', 'size': 'one size', 'color': None, 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-07T06:48:56+03:00', 'order_total': '0.66', 'days_to_fulfill': '1', 'hours_to_fulfill': '42', 'expected_ship_date': '2018-09-07T02:42:49+03:00', 'price': '0.66', 'cost': '0.66', 'shipping': '0', 'shipping_cost': '0', 'product_name': "Hollow Heart Key Ring Mother's Day Gift Keychain", 'product_image_url': 'http://www.ibn1688.com/images/p/58/16/09/v/8823178/1.jpg', 'order_time': '2018-09-07T02:42:49+03:00', 'ShippingDetail': {'city': 'Komsomolsk na Amure', 'zipcode': '681003', 'street_address1': 'Alleya truda, d. 57, korp. 3, kv. 93', 'phone_number': '+79141673856', 'state': 'Khabarovskiy kray', 'street_address2': '', 'name': 'Yuliya Vladimirovna Frolova', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+Mon Sep 10 17:20:06 2018 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /search_orders (ip 127.0.0.1) !!!
+Mon Sep 10 17:20:06 2018 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 306] during POST /search_orders (127.0.0.1)
+OSError: write error
+[pid: 32436|app: 0|req: 3/15] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:19:24 2018] POST /search_orders => generated 0 bytes in 41890 msecs (HTTP/1.1 200) 4 headers in 0 bytes (0 switches on core 0)
+{'order_id': '4bc267ff-acf0-43d5-952b-c3d46dd993ef', 'transaction_id': 'DEA77C00-B22E-11E8-8EE3-9C7A82A92C5D', 'product_id': '88003231-8059-4c4f-88bb-0aa353868184', 'variant_id': '95b924c7-c896-425e-a88c-a4a6cfe995ae', 'buyer_id': '95316f56-3c1e-408f-9ab4-49cb95811ae6', 'quantity': '1', 'sku': 'FNK-F6601046X', 'size': 'one size', 'color': None, 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-07T06:48:56+03:00', 'order_total': '0.66', 'days_to_fulfill': '1', 'hours_to_fulfill': '42', 'expected_ship_date': '2018-09-07T02:42:49+03:00', 'price': '0.66', 'cost': '0.66', 'shipping': '0', 'shipping_cost': '0', 'product_name': "Hollow Heart Key Ring Mother's Day Gift Keychain", 'product_image_url': 'http://www.ibn1688.com/images/p/58/16/09/v/8823178/1.jpg', 'order_time': '2018-09-07T02:42:49+03:00', 'ShippingDetail': {'city': 'Komsomolsk na Amure', 'zipcode': '681003', 'street_address1': 'Alleya truda, d. 57, korp. 3, kv. 93', 'phone_number': '+79141673856', 'state': 'Khabarovskiy kray', 'street_address2': '', 'name': 'Yuliya Vladimirovna Frolova', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32356|app: 0|req: 4/16] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:23:50 2018] POST /search_orders => generated 4619 bytes in 3247 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': '4bc267ff-acf0-43d5-952b-c3d46dd993ef', 'transaction_id': 'DEA77C00-B22E-11E8-8EE3-9C7A82A92C5D', 'product_id': '88003231-8059-4c4f-88bb-0aa353868184', 'variant_id': '95b924c7-c896-425e-a88c-a4a6cfe995ae', 'buyer_id': '95316f56-3c1e-408f-9ab4-49cb95811ae6', 'quantity': '1', 'sku': 'FNK-F6601046X', 'size': 'one size', 'color': None, 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-07T06:48:56+03:00', 'order_total': '0.66', 'days_to_fulfill': '1', 'hours_to_fulfill': '42', 'expected_ship_date': '2018-09-07T02:42:49+03:00', 'price': '0.66', 'cost': '0.66', 'shipping': '0', 'shipping_cost': '0', 'product_name': "Hollow Heart Key Ring Mother's Day Gift Keychain", 'product_image_url': 'http://www.ibn1688.com/images/p/58/16/09/v/8823178/1.jpg', 'order_time': '2018-09-07T02:42:49+03:00', 'ShippingDetail': {'city': 'Komsomolsk na Amure', 'zipcode': '681003', 'street_address1': 'Alleya truda, d. 57, korp. 3, kv. 93', 'phone_number': '+79141673856', 'state': 'Khabarovskiy kray', 'street_address2': '', 'name': 'Yuliya Vladimirovna Frolova', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32357|app: 0|req: 4/17] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:23:57 2018] POST /search_orders => generated 4619 bytes in 3365 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+Mon Sep 10 17:25:16 2018 - *** HARAKIRI ON WORKER 4 (pid: 32358, try: 1) ***
+Mon Sep 10 17:25:16 2018 - HARAKIRI !!! worker 4 status !!!
+Mon Sep 10 17:25:16 2018 - HARAKIRI [core 0] 127.0.0.1 - POST /search_orders since 1536571455
+Mon Sep 10 17:25:16 2018 - HARAKIRI !!! end of worker 4 status !!!
+DAMN ! worker 4 (pid: 32358) died, killed by signal 9 :( trying respawn ...
+Respawned uWSGI worker 4 (new pid: 32542)
+{'order_id': '8743fac6-54b3-4b74-ab91-89139778b93b', 'transaction_id': 'A75C30CA-B282-11E8-88E6-9A017DA92C5D', 'product_id': '05292ce3-c032-4706-8b1d-94c587ca100c', 'variant_id': '65f75141-3bcc-4e98-a4cb-2b828b008e17', 'buyer_id': '7c7afdfc-aaf7-4cd3-a800-6b7564ca9b96', 'quantity': '1', 'sku': 'LR-TB0007904', 'size': None, 'color': 'gray', 'state': 'shipped', 'shipping_provider': 'default_free', 'tracking_number': 'UB378946735YP', 'shipped_date': '2018-09-10T08:56:07+03:00', 'ship_note': None, 'last_updated': '2018-09-10T08:56:07+03:00', 'order_total': '2.4', 'days_to_fulfill': '2', 'hours_to_fulfill': '52', 'expected_ship_date': '2018-09-07T12:44:05+03:00', 'price': '2.4', 'cost': '2.4', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Vintage Paris Eiffel Tower Leather Quartz Watch Women Casual Crystal Wristwatch Gift', 'product_image_url': 'https://contestimg.wish.com/api/webimage/5a0d46d5d20e9315b6a7519a-original.jpg', 'order_time': '2018-09-07T12:44:05+03:00', 'ShippingDetail': {'city': 'Volkhov', 'zipcode': '187401', 'street_address1': 'ulitsa Frunze, d. 5, kv. 39', 'phone_number': '+7(953)361-93-24', 'state': 'Leningradskaya oblast', 'street_address2': '', 'name': 'Yelena Vladmirovna Volkova', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32436|app: 0|req: 4/18] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:25:33 2018] POST /search_orders => generated 4615 bytes in 3322 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+Mon Sep 10 17:25:56 2018 - *** HARAKIRI ON WORKER 1 (pid: 32355, try: 1) ***
+Mon Sep 10 17:25:56 2018 - HARAKIRI !!! worker 1 status !!!
+Mon Sep 10 17:25:56 2018 - HARAKIRI [core 0] 127.0.0.1 - POST /search_orders since 1536571495
+Mon Sep 10 17:25:56 2018 - HARAKIRI !!! end of worker 1 status !!!
+DAMN ! worker 1 (pid: 32355) died, killed by signal 9 :( trying respawn ...
+Respawned uWSGI worker 1 (new pid: 32544)
+Mon Sep 10 17:27:01 2018 - *** HARAKIRI ON WORKER 2 (pid: 32356, try: 1) ***
+Mon Sep 10 17:27:01 2018 - HARAKIRI !!! worker 2 status !!!
+Mon Sep 10 17:27:01 2018 - HARAKIRI [core 0] 127.0.0.1 - POST /search_orders since 1536571560
+Mon Sep 10 17:27:01 2018 - HARAKIRI !!! end of worker 2 status !!!
+DAMN ! worker 2 (pid: 32356) died, killed by signal 9 :( trying respawn ...
+Respawned uWSGI worker 2 (new pid: 32549)
+[pid: 32357|app: 0|req: 5/19] 192.168.1.22 () {42 vars in 827 bytes} [Mon Sep 10 17:31:31 2018] GET /admin => generated 0 bytes in 1 msecs (HTTP/1.1 301) 3 headers in 112 bytes (1 switches on core 0)
+[pid: 32542|app: 0|req: 5/20] 192.168.1.22 () {42 vars in 829 bytes} [Mon Sep 10 17:31:31 2018] GET /admin/ => generated 0 bytes in 68 msecs (HTTP/1.1 302) 7 headers in 265 bytes (1 switches on core 0)
+[pid: 32436|app: 0|req: 5/21] 192.168.1.22 () {42 vars in 866 bytes} [Mon Sep 10 17:31:31 2018] GET /admin/login/?next=/admin/ => generated 2014 bytes in 30 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+[pid: 32544|app: 0|req: 6/22] 192.168.1.22 () {52 vars in 1111 bytes} [Mon Sep 10 17:31:35 2018] POST /admin/login/?next=/admin/ => generated 2178 bytes in 165 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+[pid: 32549|app: 0|req: 6/23] 192.168.1.22 () {52 vars in 1111 bytes} [Mon Sep 10 17:32:45 2018] POST /admin/login/?next=/admin/ => generated 0 bytes in 351 msecs (HTTP/1.1 302) 9 headers in 531 bytes (1 switches on core 0)
+[pid: 32357|app: 0|req: 6/24] 192.168.1.22 () {46 vars in 922 bytes} [Mon Sep 10 17:32:46 2018] GET /admin/ => generated 3616 bytes in 50 msecs (HTTP/1.1 200) 6 headers in 227 bytes (1 switches on core 0)
+Mon Sep 10 17:34:07 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Mon Sep 10 17:34:07 2018 - uWSGI worker 5 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Mon Sep 10 17:34:07 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Mon Sep 10 17:34:07 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Mon Sep 10 17:34:07 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.17.1 (64bit) on [Mon Sep 10 17:34:12 2018] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-28) on 04 September 2018 09:12:14
+os: Linux-3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018
+nodename: CentOS7
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /data/apps/webapps/MailRu/script
+writing pidfile to /data/apps/webapps/MailRu/script/uwsgi.pid
+detected binary path: /usr/local/python-3.6.4/bin/uwsgi
+setgid() to 995
+setuid() to 997
+chdir() to /data/apps/webapps/MailRu/
+your processes number limit is 31355
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+!!! no /etc/mime.types file found !!!
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on 0.0.0.0:8080 fd 3
+uwsgi socket 0 bound to UNIX address /data/apps/webapps/MailRu/script/uwsgi.sock fd 6
+Python version: 3.6.4 (default, Sep  4 2018, 17:08:40)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-28)]
+Python main interpreter initialized at 0x25aec40
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+setting request body buffering size to 32768 bytes
+mapped 806160 bytes (787 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x25aec40 pid: 32571 (default app)
+spawned uWSGI master process (pid: 32571)
+spawned uWSGI worker 1 (pid: 32573, cores: 1)
+spawned uWSGI worker 2 (pid: 32574, cores: 1)
+spawned uWSGI worker 3 (pid: 32575, cores: 1)
+spawned uWSGI worker 4 (pid: 32576, cores: 1)
+spawned uWSGI worker 5 (pid: 32577, cores: 1)
+spawned uWSGI http 1 (pid: 32578)
+{'order_id': '8743fac6-54b3-4b74-ab91-89139778b93b', 'transaction_id': 'A75C30CA-B282-11E8-88E6-9A017DA92C5D', 'product_id': '05292ce3-c032-4706-8b1d-94c587ca100c', 'variant_id': '65f75141-3bcc-4e98-a4cb-2b828b008e17', 'buyer_id': '7c7afdfc-aaf7-4cd3-a800-6b7564ca9b96', 'quantity': '1', 'sku': 'LR-TB0007904', 'size': None, 'color': 'gray', 'state': 'shipped', 'shipping_provider': 'default_free', 'tracking_number': 'UB378946735YP', 'shipped_date': '2018-09-10T08:56:07+03:00', 'ship_note': None, 'last_updated': '2018-09-10T08:56:07+03:00', 'order_total': '2.4', 'days_to_fulfill': '2', 'hours_to_fulfill': '52', 'expected_ship_date': '2018-09-07T12:44:05+03:00', 'price': '2.4', 'cost': '2.4', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Vintage Paris Eiffel Tower Leather Quartz Watch Women Casual Crystal Wristwatch Gift', 'product_image_url': 'https://contestimg.wish.com/api/webimage/5a0d46d5d20e9315b6a7519a-original.jpg', 'order_time': '2018-09-07T12:44:05+03:00', 'ShippingDetail': {'city': 'Volkhov', 'zipcode': '187401', 'street_address1': 'ulitsa Frunze, d. 5, kv. 39', 'phone_number': '+7(953)361-93-24', 'state': 'Leningradskaya oblast', 'street_address2': '', 'name': 'Yelena Vladmirovna Volkova', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32573|app: 0|req: 1/1] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:34:20 2018] POST /search_orders => generated 4615 bytes in 4007 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': '8743fac6-54b3-4b74-ab91-89139778b93b', 'transaction_id': 'A75C30CA-B282-11E8-88E6-9A017DA92C5D', 'product_id': '05292ce3-c032-4706-8b1d-94c587ca100c', 'variant_id': '65f75141-3bcc-4e98-a4cb-2b828b008e17', 'buyer_id': '7c7afdfc-aaf7-4cd3-a800-6b7564ca9b96', 'quantity': '1', 'sku': 'LR-TB0007904', 'size': None, 'color': 'gray', 'state': 'shipped', 'shipping_provider': 'default_free', 'tracking_number': 'UB378946735YP', 'shipped_date': '2018-09-10T08:56:07+03:00', 'ship_note': None, 'last_updated': '2018-09-10T08:56:07+03:00', 'order_total': '2.4', 'days_to_fulfill': '2', 'hours_to_fulfill': '52', 'expected_ship_date': '2018-09-07T12:44:05+03:00', 'price': '2.4', 'cost': '2.4', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Vintage Paris Eiffel Tower Leather Quartz Watch Women Casual Crystal Wristwatch Gift', 'product_image_url': 'https://contestimg.wish.com/api/webimage/5a0d46d5d20e9315b6a7519a-original.jpg', 'order_time': '2018-09-07T12:44:05+03:00', 'ShippingDetail': {'city': 'Volkhov', 'zipcode': '187401', 'street_address1': 'ulitsa Frunze, d. 5, kv. 39', 'phone_number': '+7(953)361-93-24', 'state': 'Leningradskaya oblast', 'street_address2': '', 'name': 'Yelena Vladmirovna Volkova', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32574|app: 0|req: 1/2] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:34:45 2018] POST /search_orders => generated 4615 bytes in 2607 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': 'b6d621bf-1f0e-49bd-85bb-18256b0d19d4', 'transaction_id': '120011D6-B2E1-11E8-8ACD-698784A92C5D', 'product_id': 'acff6bf2-49be-4e5d-b73d-dfc083e29e3a', 'variant_id': 'ae39c807-aea7-4080-a25d-31824a074b0a', 'buyer_id': '60310d4c-360f-4c68-827e-8105b84e76cf', 'quantity': '1', 'sku': 'ylbngIFOdrH', 'size': None, 'color': 'Blue', 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T04:03:03+03:00', 'order_total': '0.84', 'days_to_fulfill': '2', 'hours_to_fulfill': '63', 'expected_ship_date': '2018-09-08T00:00:31+03:00', 'price': '0.84', 'cost': '0.84', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Hair Braider Sponge French Braid Plait Twist Hair Styling DIY Tool Holder Clip', 'product_image_url': 'http://www.athena285.com/images/p/53/17/10/v/26772/10.jpg', 'order_time': '2018-09-08T00:00:31+03:00', 'ShippingDetail': {'city': 's. Kuzmishchevo', 'zipcode': '249100', 'street_address1': 'Tsentralnyy pereulok, d. 1', 'phone_number': '+79687670409', 'state': 'Kaluzhskaya oblast', 'street_address2': '', 'name': 'Sergey Sergeevich Tkachev', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32575|app: 0|req: 1/3] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:35:05 2018] POST /search_orders => generated 4617 bytes in 7776 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': 'f8dde43d-75c5-4bd4-a97a-5a769ac6b902', 'transaction_id': '4F63A0D8-B2F5-11E8-9826-14D0545E8F59', 'product_id': '9e624bd1-ec3e-47f4-b3a3-9b869f65e3c9', 'variant_id': '536dc906-0d9a-4b52-939b-39a332ce4ca4', 'buyer_id': '54277401-a20f-41e1-b032-54d22b83abb3', 'quantity': '1', 'sku': 'HP-VHF50011', 'size': '', 'color': '', 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T06:28:59+03:00', 'order_total': '1.46', 'days_to_fulfill': '2', 'hours_to_fulfill': '65', 'expected_ship_date': '2018-09-08T02:25:23+03:00', 'price': '1.46', 'cost': '1.46', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Type C Data Charging Cable For Andrews phone', 'product_image_url': 'https://img.joomcdn.net/aa3a55d7befa92f5ec94d10e2ff8725681161284_original.jpeg', 'order_time': '2018-09-08T02:25:23+03:00', 'ShippingDetail': {'city': 'Krasnogorsk', 'zipcode': '143401', 'street_address1': 'Podmoskovnyy bulvar, d. 7, kv. 41', 'phone_number': '+79778998314', 'state': 'Moskovkaya Oblast', 'street_address2': '', 'name': 'Akob  Panosyan', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32576|app: 0|req: 1/4] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:35:30 2018] POST /search_orders => generated 4617 bytes in 4167 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': '6ac5667e-8271-4cac-aff1-6acd883628a3', 'transaction_id': '7FC10272-B375-11E8-B49B-D61F8488B81A', 'product_id': 'c6441f01-ed18-46a0-885b-26018e20bee3', 'variant_id': 'bf8348b7-04c4-448f-b5ea-04cb9a86d87c', 'buyer_id': '2fcf3200-9f65-40a4-8c53-a97b53350e06', 'quantity': '1', 'sku': 'PQ-MY51881H3ATD3X3', 'size': None, 'color': None, 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T21:47:26+03:00', 'order_total': '0.98', 'days_to_fulfill': '3', 'hours_to_fulfill': '81', 'expected_ship_date': '2018-09-08T17:42:40+03:00', 'price': '0.98', 'cost': '0.98', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'DIY Men Wrist Wrap Hemp Braided Leather Bracelet Bangle Cuff', 'product_image_url': 'http://showacademy.info/8X1462532488_DWC44A.jpg', 'order_time': '2018-09-08T17:42:40+03:00', 'ShippingDetail': {'city': 'Voronezh', 'zipcode': '394088', 'street_address1': 'Begovaya, d. 225, korp. v, kv. 55', 'phone_number': '+79019934522', 'state': 'Voronezh', 'street_address2': '', 'name': 'Dmitriy Vitalevich Panov', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32577|app: 0|req: 1/5] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:35:46 2018] POST /search_orders => generated 4624 bytes in 5725 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': '2edc6e0a-4690-416b-99c6-ec2839458c5c', 'transaction_id': 'B568CF2A-B38B-11E8-8B47-DAE07AA92C5D', 'product_id': 'db4e2f2b-8ba1-4392-aabc-2066f1e6de32', 'variant_id': '4e6193cb-7b10-4ae6-bd49-95c645668a73', 'buyer_id': '3658698f-d6db-44fc-9eff-4fe8e4969a68', 'quantity': '1', 'sku': 'FN-trZiy65758R', 'size': 'US 7', 'color': 'Red', 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-09T00:26:03+03:00', 'order_total': '0.95', 'days_to_fulfill': '3', 'hours_to_fulfill': '83', 'expected_ship_date': '2018-09-08T20:19:10+03:00', 'price': '0.95', 'cost': '0.95', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Women Fashion Platinum Plated Zircon Cross Wedding Ring Royal Style Jewelry', 'product_image_url': 'http://www.ebay2014.com/images/p/53/17/07/v/21556/11.jpg', 'order_time': '2018-09-08T20:19:10+03:00', 'ShippingDetail': {'city': 's. Solomenskoe', 'zipcode': '357936', 'street_address1': 'Pochtovaya, d. 117, kv. 3', 'phone_number': '+79899846194', 'state': 'Stavropolskiy kray', 'street_address2': '', 'name': 'Lyudmila Gennadevna Kim', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32573|app: 0|req: 2/6] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:36:09 2018] POST /search_orders => generated 4620 bytes in 9424 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': 'b8abd65a-38db-48c5-a760-908149e3560c', 'transaction_id': '4AA2111A-B453-11E8-8315-4BFEFD3BBEC2', 'product_id': '851ec17f-fbeb-40fa-bbbb-9e5efabccb70', 'variant_id': '34539b0f-05cd-40f5-90ef-5f00f4f1613f', 'buyer_id': '682a6f09-f6f7-4458-b2c3-6efc33053490', 'quantity': '1', 'sku': 'AY-CF025-I', 'size': None, 'color': 'pink ratbbit', 'state': 'shipped', 'shipping_provider': 'default_free', 'tracking_number': 'UB379563352YP', 'shipped_date': '2018-09-10T10:44:30+03:00', 'ship_note': None, 'last_updated': '2018-09-10T10:44:30+03:00', 'order_total': '1.02', 'days_to_fulfill': '4', 'hours_to_fulfill': '107', 'expected_ship_date': '2018-09-09T20:10:39+03:00', 'price': '1.02', 'cost': '1.02', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Squishy cat Japan Mochi Animal Lazy Cat Bread Puppy Dog Pussy Cat Candy Slow Rising Phone Strap Toy', 'product_image_url': 'http://www.aybsz.com/img/CF025a.jpg', 'order_time': '2018-09-09T20:10:39+03:00', 'ShippingDetail': {'city': 'Yoshkar-Ola', 'zipcode': '424007', 'street_address1': 'ulitsa Stroiteley, d. 34b, kv. 78', 'phone_number': '+79063351648', 'state': 'Yoshkar-Ola', 'street_address2': '', 'name': 'Anna Nikolaevna Zubko', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32574|app: 0|req: 2/7] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:36:30 2018] POST /search_orders => generated 4615 bytes in 2298 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': 'bcd271ae-d334-4772-92b9-65d623147c80', 'transaction_id': '517862CC-B33C-11E8-9DA1-CACE535E8F59', 'product_id': 'a7e6b789-4439-454a-8060-d0f0e49c46f3', 'variant_id': '33161fee-dbb4-4432-97a3-53fda9c5570f', 'buyer_id': 'ecdffdea-6b11-4168-bbc7-36bf46f32421', 'quantity': '1', 'sku': 'KVT-sJiRn85226A', 'size': None, 'color': 'Black', 'state': 'approved', 'shipping_provider': 'merchant_default', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T14:58:00+03:00', 'order_total': '2.23', 'days_to_fulfill': '3', 'hours_to_fulfill': '74', 'expected_ship_date': '2018-09-08T10:53:39+03:00', 'price': '2.23', 'cost': '2.23', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Wireless Bluetooth 4.1 Stereo Headset Headphone Earphone for iPhone Samsung', 'product_image_url': 'http://www.ebay2014.com/images/p/53/17/07/v/8116221/1.jpg', 'order_time': '2018-09-08T10:53:39+03:00', 'ShippingDetail': {'city': 'Sevastopol', 'zipcode': '299023', 'street_address1': 'Samotechnaya, d. 13', 'phone_number': '+7(978)768-45-08', 'state': 'Krym', 'street_address2': '', 'name': 'Natalya Vitalevna Uvarova', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32575|app: 0|req: 2/8] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:36:48 2018] POST /search_orders => generated 4621 bytes in 9327 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 32576|app: 0|req: 2/9] 127.0.0.1 () {46 vars in 1003 bytes} [Mon Sep 10 17:37:09 2018] GET /buyer/ecdffdea-6b11-4168-bbc7-36bf46f32421/ => generated 3877 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 32577|app: 0|req: 2/10] 127.0.0.1 () {46 vars in 943 bytes} [Mon Sep 10 17:37:14 2018] GET /search_orders => generated 7155 bytes in 17 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+{'order_id': 'bcd271ae-d334-4772-92b9-65d623147c80', 'transaction_id': '517862CC-B33C-11E8-9DA1-CACE535E8F59', 'product_id': 'a7e6b789-4439-454a-8060-d0f0e49c46f3', 'variant_id': '33161fee-dbb4-4432-97a3-53fda9c5570f', 'buyer_id': 'ecdffdea-6b11-4168-bbc7-36bf46f32421', 'quantity': '1', 'sku': 'KVT-sJiRn85226A', 'size': None, 'color': 'Black', 'state': 'approved', 'shipping_provider': 'merchant_default', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T14:58:00+03:00', 'order_total': '2.23', 'days_to_fulfill': '3', 'hours_to_fulfill': '74', 'expected_ship_date': '2018-09-08T10:53:39+03:00', 'price': '2.23', 'cost': '2.23', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Wireless Bluetooth 4.1 Stereo Headset Headphone Earphone for iPhone Samsung', 'product_image_url': 'http://www.ebay2014.com/images/p/53/17/07/v/8116221/1.jpg', 'order_time': '2018-09-08T10:53:39+03:00', 'ShippingDetail': {'city': 'Sevastopol', 'zipcode': '299023', 'street_address1': 'Samotechnaya, d. 13', 'phone_number': '+7(978)768-45-08', 'state': 'Krym', 'street_address2': '', 'name': 'Natalya Vitalevna Uvarova', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32573|app: 0|req: 3/11] 127.0.0.1 () {52 vars in 1058 bytes} [Mon Sep 10 17:37:19 2018] POST /search_orders => generated 4621 bytes in 12314 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': 'bcd271ae-d334-4772-92b9-65d623147c80', 'transaction_id': '517862CC-B33C-11E8-9DA1-CACE535E8F59', 'product_id': 'a7e6b789-4439-454a-8060-d0f0e49c46f3', 'variant_id': '33161fee-dbb4-4432-97a3-53fda9c5570f', 'buyer_id': 'ecdffdea-6b11-4168-bbc7-36bf46f32421', 'quantity': '1', 'sku': 'KVT-sJiRn85226A', 'size': None, 'color': 'Black', 'state': 'approved', 'shipping_provider': 'merchant_default', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T14:58:00+03:00', 'order_total': '2.23', 'days_to_fulfill': '3', 'hours_to_fulfill': '74', 'expected_ship_date': '2018-09-08T10:53:39+03:00', 'price': '2.23', 'cost': '2.23', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Wireless Bluetooth 4.1 Stereo Headset Headphone Earphone for iPhone Samsung', 'product_image_url': 'http://www.ebay2014.com/images/p/53/17/07/v/8116221/1.jpg', 'order_time': '2018-09-08T10:53:39+03:00', 'ShippingDetail': {'city': 'Sevastopol', 'zipcode': '299023', 'street_address1': 'Samotechnaya, d. 13', 'phone_number': '+7(978)768-45-08', 'state': 'Krym', 'street_address2': '', 'name': 'Natalya Vitalevna Uvarova', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32574|app: 0|req: 3/12] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:42:31 2018] POST /search_orders => generated 4622 bytes in 2404 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': 'bcd271ae-d334-4772-92b9-65d623147c80', 'transaction_id': '517862CC-B33C-11E8-9DA1-CACE535E8F59', 'product_id': 'a7e6b789-4439-454a-8060-d0f0e49c46f3', 'variant_id': '33161fee-dbb4-4432-97a3-53fda9c5570f', 'buyer_id': 'ecdffdea-6b11-4168-bbc7-36bf46f32421', 'quantity': '1', 'sku': 'KVT-sJiRn85226A', 'size': None, 'color': 'Black', 'state': 'approved', 'shipping_provider': 'merchant_default', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T14:58:00+03:00', 'order_total': '2.23', 'days_to_fulfill': '3', 'hours_to_fulfill': '74', 'expected_ship_date': '2018-09-08T10:53:39+03:00', 'price': '2.23', 'cost': '2.23', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Wireless Bluetooth 4.1 Stereo Headset Headphone Earphone for iPhone Samsung', 'product_image_url': 'http://www.ebay2014.com/images/p/53/17/07/v/8116221/1.jpg', 'order_time': '2018-09-08T10:53:39+03:00', 'ShippingDetail': {'city': 'Sevastopol', 'zipcode': '299023', 'street_address1': 'Samotechnaya, d. 13', 'phone_number': '+7(978)768-45-08', 'state': 'Krym', 'street_address2': '', 'name': 'Natalya Vitalevna Uvarova', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32575|app: 0|req: 3/13] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 17:42:36 2018] POST /search_orders => generated 4622 bytes in 2473 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+Mon Sep 10 17:45:05 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Mon Sep 10 17:45:05 2018 - uWSGI worker 5 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Mon Sep 10 17:45:05 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Mon Sep 10 17:45:05 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Mon Sep 10 17:45:05 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.17.1 (64bit) on [Mon Sep 10 17:45:16 2018] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-28) on 04 September 2018 09:12:14
+os: Linux-3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018
+nodename: CentOS7
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /data/apps/webapps/MailRu/script
+writing pidfile to /data/apps/webapps/MailRu/script/uwsgi.pid
+detected binary path: /usr/local/python-3.6.4/bin/uwsgi
+setgid() to 995
+setuid() to 997
+chdir() to /data/apps/webapps/MailRu/
+your processes number limit is 31355
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+!!! no /etc/mime.types file found !!!
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on 0.0.0.0:8080 fd 3
+uwsgi socket 0 bound to UNIX address /data/apps/webapps/MailRu/script/uwsgi.sock fd 6
+Python version: 3.6.4 (default, Sep  4 2018, 17:08:40)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-28)]
+Python main interpreter initialized at 0x16f5c40
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+setting request body buffering size to 32768 bytes
+mapped 806160 bytes (787 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x16f5c40 pid: 32675 (default app)
+spawned uWSGI master process (pid: 32675)
+spawned uWSGI worker 1 (pid: 32677, cores: 1)
+spawned uWSGI worker 2 (pid: 32678, cores: 1)
+spawned uWSGI worker 3 (pid: 32679, cores: 1)
+spawned uWSGI worker 4 (pid: 32680, cores: 1)
+spawned uWSGI worker 5 (pid: 32681, cores: 1)
+spawned uWSGI http 1 (pid: 32682)
+[pid: 32677|app: 0|req: 1/1] 192.168.1.22 () {44 vars in 902 bytes} [Mon Sep 10 17:52:57 2018] GET /admin/auth/group/add/ => generated 7289 bytes in 110 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+[pid: 32678|app: 0|req: 1/2] 192.168.1.22 () {42 vars in 784 bytes} [Mon Sep 10 17:52:57 2018] GET /admin/jsi18n/ => generated 3185 bytes in 59 msecs (HTTP/1.1 200) 4 headers in 115 bytes (1 switches on core 0)
+{'order_id': 'bcd271ae-d334-4772-92b9-65d623147c80', 'transaction_id': '517862CC-B33C-11E8-9DA1-CACE535E8F59', 'product_id': 'a7e6b789-4439-454a-8060-d0f0e49c46f3', 'variant_id': '33161fee-dbb4-4432-97a3-53fda9c5570f', 'buyer_id': 'ecdffdea-6b11-4168-bbc7-36bf46f32421', 'quantity': '1', 'sku': 'KVT-sJiRn85226A', 'size': None, 'color': 'Black', 'state': 'approved', 'shipping_provider': 'merchant_default', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T14:58:00+03:00', 'order_total': '2.23', 'days_to_fulfill': '3', 'hours_to_fulfill': '73', 'expected_ship_date': '2018-09-08T10:53:39+03:00', 'price': '2.23', 'cost': '2.23', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Wireless Bluetooth 4.1 Stereo Headset Headphone Earphone for iPhone Samsung', 'product_image_url': 'http://www.ebay2014.com/images/p/53/17/07/v/8116221/1.jpg', 'order_time': '2018-09-08T10:53:39+03:00', 'ShippingDetail': {'city': 'Sevastopol', 'zipcode': '299023', 'street_address1': 'Samotechnaya, d. 13', 'phone_number': '+7(978)768-45-08', 'state': 'Krym', 'street_address2': '', 'name': 'Natalya Vitalevna Uvarova', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32679|app: 0|req: 1/3] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 18:18:03 2018] POST /search_orders => generated 4647 bytes in 2691 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': 'bcd271ae-d334-4772-92b9-65d623147c80', 'transaction_id': '517862CC-B33C-11E8-9DA1-CACE535E8F59', 'product_id': 'a7e6b789-4439-454a-8060-d0f0e49c46f3', 'variant_id': '33161fee-dbb4-4432-97a3-53fda9c5570f', 'buyer_id': 'ecdffdea-6b11-4168-bbc7-36bf46f32421', 'quantity': '1', 'sku': 'KVT-sJiRn85226A', 'size': None, 'color': 'Black', 'state': 'approved', 'shipping_provider': 'merchant_default', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-08T14:58:00+03:00', 'order_total': '2.23', 'days_to_fulfill': '3', 'hours_to_fulfill': '73', 'expected_ship_date': '2018-09-08T10:53:39+03:00', 'price': '2.23', 'cost': '2.23', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Wireless Bluetooth 4.1 Stereo Headset Headphone Earphone for iPhone Samsung', 'product_image_url': 'http://www.ebay2014.com/images/p/53/17/07/v/8116221/1.jpg', 'order_time': '2018-09-08T10:53:39+03:00', 'ShippingDetail': {'city': 'Sevastopol', 'zipcode': '299023', 'street_address1': 'Samotechnaya, d. 13', 'phone_number': '+7(978)768-45-08', 'state': 'Krym', 'street_address2': '', 'name': 'Natalya Vitalevna Uvarova', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32680|app: 0|req: 1/4] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 18:18:08 2018] POST /search_orders => generated 4647 bytes in 2275 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+{'order_id': 'b8abd65a-38db-48c5-a760-908149e3560c', 'transaction_id': '4AA2111A-B453-11E8-8315-4BFEFD3BBEC2', 'product_id': '851ec17f-fbeb-40fa-bbbb-9e5efabccb70', 'variant_id': '34539b0f-05cd-40f5-90ef-5f00f4f1613f', 'buyer_id': '682a6f09-f6f7-4458-b2c3-6efc33053490', 'quantity': '1', 'sku': 'AY-CF025-I', 'size': None, 'color': 'pink ratbbit', 'state': 'shipped', 'shipping_provider': 'default_free', 'tracking_number': 'UB379563352YP', 'shipped_date': '2018-09-10T10:44:30+03:00', 'ship_note': None, 'last_updated': '2018-09-10T10:44:30+03:00', 'order_total': '1.02', 'days_to_fulfill': '4', 'hours_to_fulfill': '106', 'expected_ship_date': '2018-09-09T20:10:39+03:00', 'price': '1.02', 'cost': '1.02', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Squishy cat Japan Mochi Animal Lazy Cat Bread Puppy Dog Pussy Cat Candy Slow Rising Phone Strap Toy', 'product_image_url': 'http://www.aybsz.com/img/CF025a.jpg', 'order_time': '2018-09-09T20:10:39+03:00', 'ShippingDetail': {'city': 'Yoshkar-Ola', 'zipcode': '424007', 'street_address1': 'ulitsa Stroiteley, d. 34b, kv. 78', 'phone_number': '+79063351648', 'state': 'Yoshkar-Ola', 'street_address2': '', 'name': 'Anna Nikolaevna Zubko', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32681|app: 0|req: 1/5] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 18:18:25 2018] POST /search_orders => generated 4637 bytes in 2390 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 32677|app: 0|req: 2/6] 127.0.0.1 () {50 vars in 1056 bytes} [Mon Sep 10 18:18:30 2018] GET /buyer/682a6f09-f6f7-4458-b2c3-6efc33053490/ => generated 3891 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 32678|app: 0|req: 2/7] 127.0.0.1 () {50 vars in 996 bytes} [Mon Sep 10 18:21:48 2018] GET /search_orders => generated 7155 bytes in 20 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+{'order_id': '37fb64f5-9126-42d5-a706-20fd161c3fec', 'transaction_id': '1F1B684A-B398-11E8-BDE5-B83F7F88B81A', 'product_id': '80c43ba6-cd8e-4672-9c6d-4e4163c2711e', 'variant_id': '6fd336f8-8232-4d2f-b197-3510c4513f43', 'buyer_id': '33acb75b-5725-4915-81a3-d6736be6ad85', 'quantity': '1', 'sku': 'PQ-MY518377B6XTVN2', 'size': None, 'color': 'Yellow', 'state': 'approved', 'shipping_provider': 'default_free', 'tracking_number': None, 'shipped_date': None, 'ship_note': None, 'last_updated': '2018-09-09T01:54:05+03:00', 'order_total': '0.59', 'days_to_fulfill': '3', 'hours_to_fulfill': '84', 'expected_ship_date': '2018-09-08T21:49:06+03:00', 'price': '0.59', 'cost': '0.59', 'shipping': '0', 'shipping_cost': '0', 'product_name': 'Sport NBA Basketball Rubber Wristband 23 Silicone LEBRON JAMES', 'product_image_url': 'http://showacademy.info/ZT1513393227_DSC_7394.jpg', 'order_time': '2018-09-08T21:49:06+03:00', 'ShippingDetail': {'city': 'Uren', 'zipcode': '606800', 'street_address1': 'Kommunisticheskaya ulitsa, d. 20', 'phone_number': '+79873930147', 'state': '52', 'street_address2': '', 'name': 'Aleksandr Andreevich Vinogradov', 'country': 'Russia'}, 'refunded_by': None, 'refunded_time': None, 'refunded_reason': None, 'is_wish_express': 'False', 'we_required_delivery_date': None, 'tracking_confirmed': 'False', 'tracking_confirmed_date': None, 'requires_delivery_confirmation': 'True', 'shop_name': 'amasoo'}
+[pid: 32679|app: 0|req: 2/8] 127.0.0.1 () {56 vars in 1111 bytes} [Mon Sep 10 18:21:53 2018] POST /search_orders => generated 4656 bytes in 2495 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 32680|app: 0|req: 2/9] 127.0.0.1 () {50 vars in 1056 bytes} [Mon Sep 10 18:22:01 2018] GET /buyer/33acb75b-5725-4915-81a3-d6736be6ad85/ => generated 3884 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 32681|app: 0|req: 2/10] 192.168.1.93 () {48 vars in 1001 bytes} [Mon Sep 10 18:22:12 2018] GET /sku/16728209-1ddf-430b-8453-c031c7b8a2ff/ => generated 17701 bytes in 13 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 32677|app: 0|req: 3/11] 192.168.1.22 () {44 vars in 893 bytes} [Mon Sep 10 18:23:34 2018] GET /search_by_sku => generated 7368 bytes in 16 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 32678|app: 0|req: 3/12] 192.168.1.22 () {44 vars in 893 bytes} [Mon Sep 10 18:23:35 2018] GET /search_by_spu => generated 9161 bytes in 16 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 32679|app: 0|req: 3/13] 192.168.1.22 () {44 vars in 897 bytes} [Mon Sep 10 18:23:43 2018] GET /admin/auth/ => generated 2914 bytes in 36 msecs (HTTP/1.1 200) 6 headers in 227 bytes (1 switches on core 0)
+[pid: 32680|app: 0|req: 3/14] 192.168.1.22 () {44 vars in 897 bytes} [Mon Sep 10 18:23:44 2018] GET /admin/auth/user/ => generated 7538 bytes in 59 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+[pid: 32681|app: 0|req: 3/15] 192.168.1.22 () {42 vars in 779 bytes} [Mon Sep 10 18:23:44 2018] GET /admin/jsi18n/ => generated 3185 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 115 bytes (1 switches on core 0)
