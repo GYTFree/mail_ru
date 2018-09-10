@@ -65,7 +65,7 @@ class Order(models.Model):
     buyer_id = models.CharField(max_length=64)
     quantity = models.IntegerField()
     sku = models.CharField(max_length=128)
-    size = models.IntegerField()
+    size = models.CharField(max_length=16)
     color = models.CharField(max_length=32)
     state = models.CharField(max_length=32)
     shipping_provider = models.CharField(max_length=32)
